@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Cookie Sync Sample Page</title>
+  </head>
+  <body>
+    CookieSync Sample Page
+    <br>
+    <br>
+    このドメインのCookieKey: {{.CookieKey}}
+    このドメインのCookieValue: {{.CookieValue}}
+    <img src="http://dmp.com:8081/cs.gif?cookie_id={{.CookieValue}}" alt="" width="1" height="1">
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Cookie Sync Sample Page</title>
+  </head>
+  <body>
+    CookieSync Sample Page
+    <br>
+    <br>
+    このドメインのCookieKey: {{.CookieKey}}
+    このドメインのCookieValue: {{.CookieValue}}
+    <script type="text/javascript">
+    <!--
+    function cookieSync() {
+      var name = "testcookie";            // クッキーの名前
+      var value = 1;                  // クッキーの値
+      var period = 7;                 // 有効期限日数
+      
+      // 発行したクッキーの取得（読み込み）
+      if (document.cookie) {
+          var cookies = document.cookie.split("; ");
+          for (var i = 0; i < cookies.length; i++) {
+              var str = cookies[i].split("=");
+              if (str[0] == name) {
+                  var cookie_value = unescape(str[1]);
+                  if (!isNaN(value)) value = ++cookie_value;
+                  break;
+              }
+          }
+      }
+      window.status = value;
+      
+      // 有効期限の作成
+      var nowtime = new Date().getTime();
+      var clear_time = new Date(nowtime + (60 * 60 * 24 * 1000 * period));
+      var expires = clear_time.toGMTString();
+      
+      // クッキーの発行（書き込み）
+      document.cookie = name + "=" + escape(value) + "; expires=" + expires;
+      return name;
+    }
+    document.write(cookieSync());
+    // -->
+    </script>
+    <img src="http://dmp.com:8081/cs.gif?cookie_id=" alt="" width="1" height="1">
+  </body>
+</html>
